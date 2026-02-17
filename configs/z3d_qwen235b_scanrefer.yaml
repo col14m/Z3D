@@ -1,0 +1,31 @@
+use_sp_pts: true
+topk_clip: 6
+topk: 3
+vlm_score_thr: 6
+vlm_provider: 'vllm'
+vlm_model: './qwen_235b_fp8'
+vlm_name: qwen3_vl_235b_thinking
+vlm_parallel_queries: 9
+seg_model: sam3
+clip_params:
+  model_name: 'PE-Core-bigG-14-448'
+  pretrained: 'meta'
+  clip_bs: 32
+inst_pred_params:
+  backbone: mc
+  score_thr: 0.0
+log_params:
+  log_dir: "./logs"
+  print_freq: 100
+eval_params:
+  num_images: 100
+  full_eval: true
+  num_samples: 1000
+paths:
+  root_path: ./data/scannet
+  olt_root_path: ./data/scanrefer/mc_proposals_gt
+  ann_path: ./data/scanrefer/scanrefer_ann.json
+  pkl_path: ./data/scannet/scannet_oof_infos_val.pkl
+  sam3_root: "./sam3"
+  sam3_model_path: "./sam3/pretrained/sam3.pt"
+  output_agent_dir: 'agent_outputs_scanrefer_qwen235b'

@@ -1,0 +1,26 @@
+use_sp_pts: true
+topk_clip: 8
+topk: 4
+vlm_score_thr: 6
+vlm_provider: 'vllm'
+vlm_model: 'Qwen/Qwen3-VL-30B-A3B-Thinking'
+vlm_name: qwen3_vl_30b_thinking
+vlm_parallel_queries: 48
+seg_model: 'lens'
+seg_bs: 3
+clip_params:
+  model_name: 'PE-Core-bigG-14-448'
+  pretrained: 'meta'
+  clip_bs: 32
+log_params:
+  log_dir: "./logs"
+  print_freq: 25
+eval_params:
+  num_images: 300
+  full_eval: true
+  num_samples: 500
+paths:
+  root_path: ./data/scannet
+  ann_path: ./data/nr3d/nr3d_ann_250.json
+  pkl_path: ./data/scannet/scannet_oof_infos_val.pkl
+  lens_model_path: "./pretrained/qwen2p5_reasonseg_ft"
